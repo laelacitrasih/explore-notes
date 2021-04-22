@@ -1,0 +1,39 @@
+======================
+=====================
+install Heroku-CLI
+2. heroku login
+3. heroku create <application_name>
+4.  - git push heroku master (jika repo sudah langsung server)
+    - git subtree push --prefix <folder_name> heroku master
+5. buat aplikasi kita heroku friendly (settingannya disesuaikan dengan kebutuhan heroku)
+    - PORT dibuat dinamis
+    - tidak ada devDependencies yg require
+6.  a. tambahkan addon heroku (postgre) via GUI Heroku (dashboard aplikasi)
+    b. heroku addons:create heroku-postgresql:hobby-dev
+7. add production on config.json
+  {
+    "production": {
+      "use_env_variable": "DATABASE_URL"
+    }
+  }
+8. git add, git commit & push (lihat point 4)
+9. masuk ke bash heroku >> heroku run bash
+10. npm i -g sequelize-cli
+11. sequelize db:migrate, jika perlu juga sequelize db:seed:all
+12. selesai
+
+
+1. Buat project di console.firebase.google.com 
+2. Instal firebase cli
+3. masuk ke folder client
+4. firebase init
+    - pilih Hosting
+    - Use an existing project
+    - select project
+    - What do you want to use as your public directory? ketik . untuk project jquery / ketik dist jika sudah memakai vue
+    - Configure as a single-page app? y
+    - File ./index.html already exists. Overwrite? N
+5. pastikan aplikasi client kita sudah ready for production
+6. NPM RUN BUILD JGN LUPA
+6. firebase Deploy (jika ada perubahan cukup jalankan ini untuk deploy ulang)
+7. selesai
